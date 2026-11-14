@@ -1,0 +1,1 @@
+Every reliable system starts with a clear picture of how it fails. Before you write any code, write down what happens when a dependency is slow, when it is down, and when it returns something you did not expect. Then decide which failures the system should absorb on its own and which ones need a person. Automate the first group, and page someone for the second.

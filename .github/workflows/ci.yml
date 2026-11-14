@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+      - name: Sample reports
+        run: |
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          speech-scorer examples/ar_transcript.json examples/ar_script.txt >> "$GITHUB_STEP_SUMMARY"
+          speech-scorer examples/en_transcript.json examples/en_script.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
