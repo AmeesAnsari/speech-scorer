@@ -1,5 +1,7 @@
 # speech-scorer
 
+[![CI](https://github.com/AmeesAnsari/speech-scorer/actions/workflows/ci.yml/badge.svg)](https://github.com/AmeesAnsari/speech-scorer/actions/workflows/ci.yml) ![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue) [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 Score a speech against the script it was meant to follow. Give it a speech-to-text transcript with word timestamps (Whisper, faster-whisper and similar) and the script text. It reports **accuracy, coverage, skipped passages, pace and long pauses**, with a 100-point score and plain-language feedback. Works for **Arabic** (with proper normalisation) and English.
 
 It's a small, open version of the text-scoring stage of an Arabic speech-evaluation system I've built. Audio processing and recognition are left to your recogniser of choice.
